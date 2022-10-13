@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>tjur.org</title>
+</head>
+<body>
+<h1>tjur.org</h1>
+<p>...</p>
+<form action="/makethread">
+  <input type="submit" value="Post new thread" />
+</form>
+<form action="/register">
+  <input type="submit" value="Register new user" />
+</form>
+<ul>
+{% for thread in threads%}
+  <li><a href="/thread/{{thread}}">{{thread}}</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>

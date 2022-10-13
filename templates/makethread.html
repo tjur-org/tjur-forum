@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>tjur.org - post new thread</title>
+</head>
+<body>
+<h1>Post new thread</h1>
+<form action="/makethread" method="post">
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br>
+  <label for="pwd">Password:</label>
+  <input type="password" id="pwd" name="pwd" minlength="8"><br><br>
+  <label for="threadname">Thread title</label>
+  <input type="text" id="threadname" name="threadname" minlength="1"><br>
+  <label for="firstpost">Thread contents</label><br>
+  <textarea id="firstpost" name="firstpost" rows="10"></textarea><br><br>
+  <input type="submit" value="Post thread">
+</form>
+</body>
+</html>

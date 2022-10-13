@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>tjur.org - {{title}}</title>
+</head>
+<body>
+<h1>{{title}}</h1>
+<hr>
+{% for post in posts%}
+  <p><b>{{post.poster}}</b> posted:</p>
+  <p>{{post.content}}</p>
+  <br>
+{% endfor %}
+<br>
+<hr>
+<br>
+<h2>Post a reply</h2>
+<form action="/thread/{{title}}" method="post">
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br>
+  <label for="pwd">Password:</label>
+  <input type="password" id="pwd" name="pwd" minlength="8"><br><br>
+  <label for="post">Post contents</label><br>
+  <textarea id="post" name="post" rows="10"></textarea><br><br>
+  <input type="submit" value="Post reply">
+</form>
+<form action="/">
+  <input type="submit" value="Go back to index" />
+</form>
+</body>
+</html>
