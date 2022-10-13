@@ -13,10 +13,11 @@ templates = Jinja2Templates(directory="templates")
 async def index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-@app.get("/register/")
-async def register_page():
-    return {}
+@app.get("/register/", response_class=HTMLResponse)
+async def register_page(request: Request):
+    return templates.TemplateResponse("register.html", {"request": request})
 
 @app.post("/register/")
 async def register_user():
+    return {}
 
