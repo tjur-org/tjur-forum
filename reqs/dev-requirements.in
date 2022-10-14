@@ -1,0 +1,11 @@
+-c requirements.txt
+
+# Debugger
+pdbpp
+
+# pytest
+pytest
+pytest-cov
+
+# Type checking
+mypy

@@ -1,0 +1,7 @@
+# Web framework
+fastapi
+jinja2
+
+# Web servern
+gunicorn
+uvicorn[standard]
