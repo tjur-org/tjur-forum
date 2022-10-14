@@ -20,4 +20,3 @@ async def register_page(request: Request):
 @app.post("/register/")
 async def register_user():
     return {}
-
