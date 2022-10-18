@@ -1,5 +1,8 @@
 -c requirements.txt
 
+# FastAPI test client
+requests
+
 # Debugger
 pdbpp
 
