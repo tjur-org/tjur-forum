@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  test:
+    image: ${DOCKER_IMAGE}
+    stdin_open: true
+    tty: true
+    command: pytest
+    depends_on:
+      - postgres
+    volumes:
+      - ./src:/app/src:cached
+      - ./pyproject.toml:/app/pyproject.toml:cached
+
+  postgres:
+    image: postgres:latest
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+volumes:
+  postgres_data: {}
