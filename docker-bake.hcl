@@ -23,6 +23,7 @@ target "runtime" {
   dockerfile = "images/Dockerfile.runtime"
   contexts = {
     builder = "target:builder"
+    python = "target:python"
   }
   tags = ["tjur-forum:${IMAGE_TAG}"]
 }
@@ -31,6 +32,7 @@ target "runtime-test" {
   dockerfile = "images/Dockerfile.runtime"
   contexts = {
     builder = "target:builder-test"
+    python = "target:python"
   }
   tags = ["tjur-forum:${IMAGE_TAG}-test"]
 }
