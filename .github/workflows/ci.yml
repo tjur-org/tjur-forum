@@ -58,7 +58,7 @@ jobs:
       - run: |
           docker-compose -f docker-compose.test.yml run test
 
-  mypy:
+  type-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -85,9 +85,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-mypy-
 
-      - name: Run mypy
+      - name: Install requirements
         run: |
           pip install -r reqs/requirements.txt -r reqs/dev-requirements.txt
+
+      - name: Run mypy
+        run: |
           mypy
 
   lint:

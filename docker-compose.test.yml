@@ -5,6 +5,7 @@ services:
     image: ${DOCKER_IMAGE}
     stdin_open: true
     tty: true
+    working_dir: /app
     command: pytest
     depends_on:
       - postgres
