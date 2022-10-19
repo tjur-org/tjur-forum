@@ -1,0 +1,14 @@
+-c requirements.txt
+
+# FastAPI test client
+requests
+
+# Debugger
+pdbpp
+
+# pytest
+pytest
+pytest-cov
+
+# Type checking
+mypy

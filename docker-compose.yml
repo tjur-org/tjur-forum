@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  app:
+    image: tjur-forum:latest-test
+    stdin_open: true
+    tty: true
+    restart: on-failure
+    working_dir: /app
+    depends_on:
+      - postgres
+    ports:
+      - 8000:8000
+    volumes:
+      - ./src:/app/src:cached
+      - ./pyproject.toml:/app/pyproject.toml:cached
+      - mypy_cache:/app/.mypy_cache
+      - pytest_cache:/app/.pytest_cache
+
+  postgres:
+    image: postgres:latest
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+volumes:
+  postgres_data: {}
+  mypy_cache: {}
+  pytest_cache: {}

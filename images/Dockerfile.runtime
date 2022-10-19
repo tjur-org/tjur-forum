@@ -1,0 +1,18 @@
+# syntax=docker/dockerfile:labs
+
+FROM builder as builder
+
+FROM python
+
+RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
+    apt-get update && apt-get install --no-install-recommends -y \
+        postgresql-client
+
+USER app
+
+COPY --chown=app src /app/src
+COPY --from=builder --chown=app /app/venv /app/venv
+
+WORKDIR /app/src
+
+CMD ["/bin/bash"]
