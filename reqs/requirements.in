@@ -1,7 +1,9 @@
 # Web framework
 fastapi
 jinja2
+python-multipart
 
 # Web servern
 gunicorn
 uvicorn[standard]
+passlib[bcrypt]

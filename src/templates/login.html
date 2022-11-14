@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>tjur.org - Log in</title>
+<link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+<h1>Log in</h1>
+<p>Welcome back.</p>
+<form action="/login" method="post">
+  <label for="name">Username:</label>
+  <input type="text" id="name" name="name"><br>
+  <label for="pwd">Password:</label>
+  <input type="password" id="pwd" name="pwd" minlength="8"><br>
+  <input type="submit" value="Log in">
+</form>
+<hr>
+</body>
+</html>
