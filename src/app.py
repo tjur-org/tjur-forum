@@ -1,13 +1,15 @@
 from pathlib import Path
 from typing import Union
 
-from fastapi import FastAPI, Request, Response, Form, Depends, HTTPException
+from fastapi import FastAPI, Request, Response, Form, Depends, HTTPException, responses
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 from starlette import status
+
+from forms import UserCreateForm
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -128,5 +130,9 @@ async def register_page(request: Request) -> Response:
 
 
 @app.post("/register/")
-async def register_user() -> dict:
-    return {}
+async def register_user(request: Request):
+    form = UserCreateForm(request)
+    await form.load_data()
+    if await form.is_valid():
+        return responses.RedirectResponse("/?msg=Successfully-Registered", status_code=status.HTTP_302_FOUND)
+    return templates.TemplateResponse("register.html", form.__dict__)

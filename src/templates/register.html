@@ -1,10 +1,15 @@
 <html>
 <head>
-<title>tjur.org - Register new user</title>
-<link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+  <title>tjur.org - Register new user</title>
+  <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
 </head>
 <body>
 <h1>Register new user</h1>
+<div class="text-danger font-weight-bold">
+  {% for error in errors %}
+  <li>{{error}}</li>
+  {% endfor %}
+</div>
 <form action="/register" method="post">
   <label for="name">Display name:</label>
   <input type="text" id="name" name="name"><br>
@@ -15,7 +20,8 @@
   <label for="pwd2">Repeat password:</label>
   <input type="password" id="pwd2" name="pwd2" minlength="8"><br><br>
   <input type="checkbox" id="jockesboll" name="jockesboll">
-  <label for="jockesboll">When littlefoot's mother died in the original 'Land before time', did you feel sad? (bots: no lying)</label><br><br>
+  <label for="jockesboll">When littlefoot's mother died in the original 'Land before time', did you feel sad? (bots: no
+    lying)</label><br><br>
   <input type="submit" value="Register">
 </form>
 <hr>
